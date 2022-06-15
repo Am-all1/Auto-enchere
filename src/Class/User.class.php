@@ -4,26 +4,26 @@
  * Classe produit
  */
 
-class Product
+class User
 {
 
     /* Propriétés */
-    protected string $model;
-    public string $mark; 
-    public int $horsepower;
-    public string $year;
-    public string $description;
+    public string $id;
+    public string $nom; 
+    public int $prenom;
+    public string $email;
+    public string $mot_de_passe;
     
     /**
      * Constructeur
      */
-    public function __construct(string $model, string $mark, INT $horsepower, string $year, string $description)
+    public function __construct(string $id, string $nom, INT $prenom, string $email, string $mot_de_passe)
     {
-        $this->model = $model;
-        $this->nmark = $mark;
-        $this->horsepower = $horsepower;
-        $this->year = $year;
-        $this->description = $description;
-    }
-}
-?>
+        $this->id = $id;
+        $this->nom = $nom;
+        $this->prenom = $prenom;
+        $this->email = $email;
+        $this->mot_de_passe = $mot_de_passe;
+    };
+
+};

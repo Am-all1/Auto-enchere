@@ -20,7 +20,7 @@ class User
     /**
      * Constructeur
      */
-    public function __construct(string $id, string $prix_de_reserve,string $fin_enchere,string $date, string $modele, string $puissance, string $annee,string $description)
+    public function __construct(string $id, FLOAT $prix_de_reserve,string $fin_enchere,DateTime $date, string $modele, INT $puissance, string $annee,string $description)
     {
     $this-> id =$id;
     $this-> prix_de_reserve =$prix_de_reserve; 

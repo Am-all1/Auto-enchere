@@ -1,12 +1,16 @@
 
 <?php
-session_start();
+
 require_once __DIR__."/lib/dbb.php";
+
+session_start();
+
  
-    // if (!isset($_SESSION['id'])){
-    //      header('Location: index.php');
-    //      exit;
-    //  }
+if ($_SERVER["REQUEST_METHOD"] != "POST") 
+{
+    http_response_code(405);
+    die();
+}
 
     $afficher_profil = $DB->query("SELECT *
         FROM user
@@ -19,9 +23,9 @@ require_once __DIR__."/lib/dbb.php";
         $valid = true;
  
         if (isset($_POST['modification'])){
-            $nom = htmlentities(trim($nom));
-            $prenom = htmlentities(trim($prenom));
-            $mail = htmlentities(strtolower(trim($mail)));
+            $nom = htmlentities(trim($nom));//trim=supprime les espaces avant le nom
+            $prenom = htmlentities(trim($prenom));//html entities traduit tous les caractères et entité en HTML
+            $mail = htmlentities(strtolower(trim($mail)));//strtolower pr convertir en minuscule
  
          if(empty($nom)){
             $valid = false;

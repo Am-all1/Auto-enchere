@@ -24,15 +24,7 @@ $result = $query->execute([$nom, $prenom, $email, $mot_de_passe]);
 $user = $query->fetch(PDO::FETCH_ASSOC);
 
 
-/* Vérification de l'existence de l'utilisateur et de son mot de passe */
-if ($user != false && password_verify($mot_de_passe, $user["password"])) {
-    /* Stockage dans la session des infos de l'utilisateur */
-    $_SESSION["user_email"] = $user["email"];
-    $_SESSION["user_id"] = $user["id"];
-    $success = true;
-} else {
-    $success = false;
-}
+
 ?>
 
 <!DOCTYPE html>

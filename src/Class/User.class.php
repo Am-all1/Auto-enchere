@@ -24,7 +24,7 @@ class User
     {
         global $bdh;
         $query = $bdh->prepare("INSERT INTO user (email, password)VALUE (?, ?);");
-        return $query->execute([$this->$email, $this->$mot_de_passe]);
+        return $query->execute([$this->email, $this->mot_de_passe]);
     }
     public static function getuserByEmail(string $email): user | null
     {

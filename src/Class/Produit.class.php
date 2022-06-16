@@ -9,7 +9,8 @@ class Produit
 
     /* Propriétés */
 
-    public string $prix_depart; 
+    public int $id;
+    public int $prix_depart; 
     public string $date_mise_en_ligne; 
     public int $date_fin_enchere;
     public string $marque;
@@ -21,7 +22,7 @@ class Produit
     /**
      * Constructeur
      */
-    public function __construct(FLOAT $prix_depart, string $date_mise_en_ligne, string $date_fin_enchere, string $modele, INT $puissance, string $annee,string $description,int $id_user)
+    public function __construct(int $prix_depart, string $date_mise_en_ligne, string $date_fin_enchere, string $modele, INT $puissance, string $annee,string $description,int $id_user)
     {
     
     $this-> prix_depart =$prix_depart; 

@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Classe produit
+ * Classe historique_achat
  */
 
 class HistoriqueAchat
 {
 
     /* Propriétés */
-    
+       
     public string $derniere_encheres; 
     public int $prix_final;
     public int $id_user;

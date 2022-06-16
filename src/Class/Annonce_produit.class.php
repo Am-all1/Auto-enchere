@@ -4,7 +4,7 @@
  * Classe produit
  */
 
-class Produit
+class Annonce_produit
 {
 
     /* Propriétés */

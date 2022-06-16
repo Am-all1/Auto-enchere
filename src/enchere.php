@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
 
 /* Préparation de la requette*/
     $query = $dbh->prepare("INSERT INTO annonce_produit (prix_depart_enchere, date_mise_en_ligne, date_fin_enchere, modele, marque, puissance, annee, description) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);");
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
 
 /*Execution de la requette*/
     $result = $query->execute([$prix_depart_enchere, $date_mise_en_ligne, $date_fin_enchere, $modele, $marque, $puissance, $annee, $description]);

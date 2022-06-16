@@ -23,8 +23,8 @@ if (isset($_GET["type_utilisateur"])) {
             <label for="email">Email:</label>
             <input type="email" name="email" id="email">
 
-            <label for="password">Mot de passe:</label>
-            <input type="password" name="password" id="password">
+            <label for="mot_de_passe">Mot de passe:</label>
+            <input type="password" name="mot_de_passe" id="mot_de_passe">
 
             <input type="submit" value="Se connecter">
         </form>

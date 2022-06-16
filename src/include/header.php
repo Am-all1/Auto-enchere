@@ -1,17 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-        <h2>The place to be</h2>
-        <a href="index.php">Accueil</a>
-        <a href="profil.php">Profil</a>
-        <a href="page_connexion.php">Connexion</a>
+<?php 
 
-    </header>
+    function affichage_header($titre, $liens) { ?>
+    <nav>
+        <p><?php echo $titre; ?></p>
+        <ul>
+            <?php foreach($liens as $nom => $lien) { ?>
+                <li>
+                    <a href="<?php echo $lien; ?>">
+                        <?php echo $nom; ?>
+                    </a>
+                </li>
+            <?php } ?>
+        </ul>
+    </nav>
+<?php }
+
+
     
-</body>
-</html>

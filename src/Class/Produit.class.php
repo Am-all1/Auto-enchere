@@ -4,14 +4,15 @@
  * Classe produit
  */
 
-class User
+class Produit
 {
 
     /* Propriétés */
-    public string $id;
-    public string $prix_de_reserve; 
-    public int $fin_enchere;
-    public string $date;
+
+    public string $prix_depart_enchere; 
+    public string $date_mise_en_ligne; 
+    public int $date_fin_enchere;
+    public string $marque;
     public string $modele;
     public string $puissance; 
     public int $annee;
@@ -20,9 +21,9 @@ class User
     /**
      * Constructeur
      */
-    public function __construct(string $id, FLOAT $prix_de_reserve,string $fin_enchere,DateTime $date, string $modele, INT $puissance, string $annee,string $description)
+    public function __construct(FLOAT $prix_de_reserve,string $fin_enchere,DateTime $date, string $modele, INT $puissance, string $annee,string $description)
     {
-    $this-> id =$id;
+    
     $this-> prix_de_reserve =$prix_de_reserve; 
     $this-> fin_enchere =$fin_enchere;
     $this-> date =$date;

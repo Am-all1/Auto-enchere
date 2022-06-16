@@ -12,7 +12,7 @@ require_once __DIR__."/include/footer.php";
     <body>
         <?php affichage_header("Accueil", ["index"=>"index.php","profil"=>"profil.php", "Connexion"=> "page_connexion.php"]); ?>
         
-        <form action="annonce.php" method="POST">
+        <form action="enchere.php" method="POST">
             <label for="prix_depart_enchere">Prix de reserve:</label>
             <input type="number" name="prix_depart_enchere" id="prix_depart_enchere">
 
@@ -28,13 +28,14 @@ require_once __DIR__."/include/footer.php";
             <label for="marque">Marque du véhicule:</label>
             <input type="text" name="marque" id="marque">
             
-            <label for="Puissance">Puissance:</label>
-            <input type="number" name="Puissance" id="Puissance">
+            <label for="puissance">Puissance:</label>
+            <input type="number" name="puissance" id="puissance">
             
-            <label for="annee_vehicule">Année de mise en circulation:</label>
-            <input type="date" name="annee_vehicule" id="annee_vehicule">
+            <label for="annee">Année de mise en circulation:</label>
+            <input type="number" name="annee" id="annee">
 
-            <textarea name="description_vehicule">Description:</textarea>
+            <label for="description">description:</label>
+            <textarea name="description"></textarea>
 
             <input type="submit" value="S'inscrire">
         </form>

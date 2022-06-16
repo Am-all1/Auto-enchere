@@ -12,7 +12,7 @@ require_once __DIR__."/include/footer.php";
     <title>The place to be | Mentions Légales</title>
 </head>
 <body>
-<?php affichage_header("Accueil", ["index"=>"index.php","profil"=>"profil.php","Enchère"=>"enregistrement_enchere.php", "Connexion"=> "page_connexion.php"]); ?>
+<?php affichage_header("Accueil", ["index"=>"index.php","profil"=>"profil_utilisateur.php","Enchère"=>"enregistrement_enchere.php", "Connexion"=> "page_connexion.php"]); ?>
 
     <main>
         <a href="index.php">Retour à l'accueil</a>

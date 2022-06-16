@@ -10,7 +10,7 @@ require_once __DIR__."/include/footer.php";
         <title>Document</title>
     </head>
     <body>
-        <?php affichage_header("Accueil", ["index"=>"index.php","profil"=>"profil.php", "Connexion"=> "page_connexion.php"]); ?>
+        <?php affichage_header("Accueil", ["index"=>"index.php","profil"=>"profil_utilisateur.php", "Connexion"=> "page_connexion.php"]); ?>
         
         <form action="enchere.php" method="POST">
             <label for="prix_depart_enchere">Prix de reserve:</label>

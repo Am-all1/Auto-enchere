@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] != "POST")
         if (isset($_POST['modification'])){
             $nom = htmlentities(trim($nom));//trim=supprime les espaces avant le nom
             $prenom = htmlentities(trim($prenom));//html entities traduit tous les caractères et entité en HTML
-            $mail = htmlentities(strtolower(trim($mail)));//strtolower pr convertir en minuscule
+            $email = htmlentities(strtolower(trim($email)));//strtolower pr convertir en minuscule
  
          if(empty($nom)){
             $valid = false;
@@ -41,31 +41,31 @@ if ($_SERVER["REQUEST_METHOD"] != "POST")
             $valid = false;
             $er_mail = "Il faut mettre un mail";
  
-            }elseif(!preg_match("/^[a-z0-9\-_.]+@[a-z]+\.[a-z]{2,3}$/i", $mail)){
+            }elseif(!preg_match("/^[a-z0-9\-_.]+@[a-z]+\.[a-z]{2,3}$/i", $email)){
             $valid = false;
             $er_mail = "Le mail n'est pas valide";
  
             }else{
-            $req_mail = $DB->query("SELECT mail
+            $req_mail = $DB->query("SELECT email
                 FROM utilisateur
-                WHERE mail = ?",
-            array($mail));
-             $req_mail = $req_mail->fetch();
+                WHERE email = ?",
+            array($email));
+             $req_email = $req_email->fetch();
  
-        if ($req_mail['mail'] <> "" && $_SESSION['mail'] != $req_mail['mail']){
+        if ($req_mail['email'] <> "" && $_SESSION['email'] != $req_email['email']){
             $valid = false;
             $er_mail = "Ce mail existe déjà";
  }
 }
  
 if ($valid){
-    $DB->insert("UPDATE utilisateur SET prenom = ?, nom = ?, mail = ?
+    $DB->insert("UPDATE utilisateur SET prenom = ?, nom = ?, email = ?
                      WHERE id = ?",
-                     array($prenom, $nom,$mail, $_SESSION['id']));
+                     array($prenom, $nom,$email, $_SESSION['id']));
  
                  $_SESSION['nom'] = $nom;
                  $_SESSION['prenom'] = $prenom;
-                 $_SESSION['mail'] = $mail;
+                 $_SESSION['email'] = $email;
  
              header('Location: profil_utilisateur.php');
              exit;

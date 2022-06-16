@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
 $nom = htmlspecialchars($_POST["nom"]);
 $prenom = htmlspecialchars($_POST["prenom"]);
 $email = htmlspecialchars(filter_var($_POST["email"], FILTER_SANITIZE_EMAIL));
-$mot_de_passe = password_hash ($_POST["mot_de_passe"]), PASSWORD_DEFAULT;
+$mot_de_passe = password_hash($_POST["mot_de_passe"], PASSWORD_DEFAULT);
 
 /* Préparation de la requette*/
 $query = $dbh->prepare("INSERT INTO users (nom, prenom, email, mot_de_passe) 
@@ -46,9 +46,9 @@ if ($user != false && password_verify($mot_de_passe, $user["password"])) {
 </head>
 
 <body>
-    <meta http-equiv="refresh" content="1;profil_utilisateur.php" />
     <?php if ($result == 1) { ?>
         <p>Votre profil a bien été enregistré.</p>
+        <meta http-equiv="refresh" content="1;profil_utilisateur.php" />
     <?php } else { ?>
         <p>Une erreur s'est produite lors de votre enregistrement.</p>
     <?php } ?>

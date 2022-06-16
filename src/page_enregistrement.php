@@ -9,7 +9,7 @@
     </head>
     <body>
        
-        <form action="profil_utilisateur.php" method="POST">
+        <form action="validation_profil_utilisateur.php" method="POST">
             <label for="nom">Nom:</label>
             <input type="text" name="nom" id="nom">
 

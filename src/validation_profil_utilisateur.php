@@ -35,9 +35,9 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
     <title>The place to be | Profil utilisateur</title>
 </head>
 <body>
-    <meta http-equiv="refresh" content="1;profil_utilisateur.php" />
     <?php if($result == 1){ ?>
         <p>Votre profil a bien été enregistré.</p>
+        <meta http-equiv="refresh" content="1;profil_utilisateur.php" />
     <?php } else { ?>
         <p>Une erreur s'est produite lors de votre enregistrement.</p>
     <?php } ?>

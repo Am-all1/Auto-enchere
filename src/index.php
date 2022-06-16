@@ -11,7 +11,7 @@ require_once __DIR__."/include/footer.php";
     <title>The place to be | Accueil</title>
 </head>
 <body>
-    <?php affichage_header("Accueil", ["Profil"=>"profil.php","Enchère"=>"enregistrement_enchere.php","Connexion"=> "page_connexion.php"]); ?>
+    <?php affichage_header("Accueil", ["Profil"=>"profil_utilisateur.php","Enchère"=>"enregistrement_enchere.php","Connexion"=> "page_connexion.php"]); ?>
     
     <main>
         <h2>Accueil</h2>

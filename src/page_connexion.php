@@ -1,16 +1,3 @@
-<?php
-
-
-$user_type = null;
-if (isset($_GET["type_utilisateur"])) {
-    $type_utilisateur = $_GET["type_utilisateur"];
-}
-
-
-?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -21,7 +8,7 @@ if (isset($_GET["type_utilisateur"])) {
 </head>
 
 <body>
-    <form action="validation_profil.php" method="POST">
+    <form action="connection_user.php" method="POST">
         <label for="email">Email:</label>
         <input type="email" name="email" id="email">
 
@@ -30,7 +17,7 @@ if (isset($_GET["type_utilisateur"])) {
 
 
         <input type="submit" value="Se connecter">
-        <input type="submit" value="Se deconnecter">
+
     </form>
     <form action="page_enregistrement.php" method="POST">
         <input type="submit" value="S'inscrire">

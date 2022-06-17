@@ -1,7 +1,7 @@
 <?php
+session_start();
 require_once __DIR__."/include/header.php";
 require_once __DIR__."/include/footer.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@ require_once __DIR__."/include/footer.php";
     <title>The place to be | Accueil</title>
 </head>
 <body>
-    <?php affichage_header("Accueil", ["Profil"=>"profil_utilisateur.php","Enchère"=>"enregistrement_enchere.php","Connexion"=> "page_connexion.php"]); ?>
+    <?php affichage_header("Accueil", ["Profil"=>"profil_utilisateur.php","Enchère"=>"enregistrement_enchere.php", "historique des enchères"=>"histo_enchere.php", "Connexion"=> "page_connexion.php"]); ?>
     
     <main>
         <h2>Accueil</h2>

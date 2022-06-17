@@ -2,11 +2,12 @@
 <?php
 session_start();
 require_once __DIR__."/lib/dbb.php";
- 
-    // if (!isset($_SESSION['id'])){
-    //      header('Location: index.php');
-    //      exit;
-    //  }
+require_once __DIR__."/Class/User.class.php";
+
+    if (!isset($_SESSION['id'])){
+         header('Location: index.php');
+         exit;
+     }
 
     $afficher_profil = $DB->query("SELECT *
         FROM user

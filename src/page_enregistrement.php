@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -24,5 +21,8 @@
 
             <input type="submit" value="S'inscrire">
         </form>
+        <div>
+            <a href="page_connexion.php">Retourner à la page de connexion</a>
+        </div>
     </body>
 </html>

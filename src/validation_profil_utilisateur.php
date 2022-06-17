@@ -1,8 +1,9 @@
 <?php
+session_start();
 require_once __DIR__ . "/include/header.php";
 require_once __DIR__ . "/include/footer.php";
 require_once __DIR__ . "/lib/dbb.php";
-
+require_once __DIR__."/Class/User.class.php";
 /*  si le verbe http est different de POST*/
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
     http_response_code(405);
@@ -40,7 +41,7 @@ $user = $query->fetch(PDO::FETCH_ASSOC);
 <body>
     <?php if ($result == 1) { ?>
         <p>Votre profil a bien été enregistré.</p>
-        <meta http-equiv="refresh" content="1;profil_utilisateur.php" />
+        <meta http-equiv="refresh" content="1;page_connexion.php" />
     <?php } else { ?>
         <p>Une erreur s'est produite lors de votre enregistrement.</p>
     <?php } ?>

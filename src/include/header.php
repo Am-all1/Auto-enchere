@@ -27,7 +27,7 @@
 
 background-color: #000000e8;
 color: white;
-height: 150px;
+height: 130px;
 }
 
 #li{

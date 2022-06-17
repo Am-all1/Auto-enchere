@@ -22,7 +22,7 @@ $query = $dbh->prepare("INSERT INTO historique_enchere ( derniere_enchere, prix_
 $result = $query->execute([$id_historique_enchere, $derniere_enchere, $prix_final]);
 
 
-?>
+?>;
 
 <!DOCTYPE html>
 <html lang="fr">

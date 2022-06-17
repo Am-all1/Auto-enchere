@@ -57,4 +57,7 @@ $annonce_produit = $query->fetchAll(PDO::FETCH_ASSOC);
     
     <?php affichage_footer("Tous droit reservés", "mentions_legales.php"); ?>
 </body>
+
+
+
 </html>

@@ -3,6 +3,7 @@
 /* Import */
 require_once __DIR__ . "/lib/dbb.php";
 
+
 /* Préparation de la requête */
 $query = $dbh->prepare("SELECT * FROM annonce_produit;");
 
@@ -10,9 +11,9 @@ $query = $dbh->prepare("SELECT * FROM annonce_produit;");
 $query->execute();
 
 /* Récupération des données retournées par la requête */
+
 $annonce_produit = $query->fetchAll(PDO::FETCH_ASSOC);
 function affichage_annonce_enchere() { ?>
-
    <h1>Annonce d'enchère</h1>
 
    <table>

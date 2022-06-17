@@ -1,14 +1,11 @@
-
 <?php
+/* Démarrage de la session */
 session_start();
 
 require_once __DIR__."/lib/dbb.php";
 require_once __DIR__."/Class/User.class.php";
 
-    if (!isset($_SESSION['id'])){
-         header('Location: index.php');
-         exit;
-     }
+
 
 
  
@@ -18,12 +15,12 @@ if ($_SERVER["REQUEST_METHOD"] != "POST")
     die();
 }
 
-    $afficher_profil = $DB->query("SELECT *
-        FROM user
-         WHERE id = ?",
-         array($_SESSION['id']));
-     $afficher_profil = $afficher_profil->fetch();
- 
+$query = $DB->prepare("SELECT *
+FROM user
+ WHERE id = ?",
+ array($_SESSION['id']));
+$afficher_profil = $query->fetch();
+
     if(!empty($_POST)){
      extract($_POST);
         $valid = true;
@@ -80,53 +77,16 @@ if ($valid){
     }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="fr">
- <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<head>
+    <meta charset="UTF-8">
+    <title>Demo class pdo</title>
+</head>
 
+<body>
+    <p>Votre adresse email est <?= $_SESSION["email"] ?> et votre id <?= $_SESSION["user_id"] ?> .</p>
+</body>
 
- <body>
-     <div>Modification</div>
-
-        <form method="post">
-
-         <?php
-             if (isset($er_nom)){
-
-             ?>
-             <div><?= $er_nom ?></div>
-
-             <?php
-             }
-
-            ?>
-
-        <input type="text" placeholder="Votre nom" name="nom" value="<?php if(isset($nom)){ echo $nom; }else{ echo $afficher_profil['nom'];}?>" required>   
-        <?php
-             if (isset($er_prenom)){
-        ?>
-            <div><?= $er_prenom ?></div>
-        <?php
-             }
-            ?>
-        <input type="text" placeholder="Votre prénom" name="prenom" value="<?php if(isset($prenom)){ echo $prenom; }else{ echo $afficher_profil['prenom'];}?>" required>   
-            <?php
-
-            if (isset($er_mail)){
-
-            ?>
-            <div><?= $er_mail ?></div>
-            <?php
-         }
-            
-            ?>
-<input type="email" placeholder="Adresse mail" name="mail" value="<?php if(isset($mail)){ echo $mail; }else{ echo $afficher_profil['mail'];}?>" required>
-<button type="submit" name="modification">Modifier</button>
- </form>
- </body>
 </html>

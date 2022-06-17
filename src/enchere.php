@@ -21,14 +21,14 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
     $puissance = htmlspecialchars($_POST["puissance"]);
     $annee = htmlspecialchars($_POST["annee"]);
     $description = htmlspecialchars($_POST["description"]);
-    $id_users = htmlspecialchars($_POST["id_users"]);
-
+    $id_users = $_SESSION["id_users"];
+var_dump($_SESSION["id_users"]);
 /* Préparation de la requette*/
-    $query = $dbh->prepare("INSERT INTO annonce_produit (prix_depart_enchere, date_mise_en_ligne, date_fin_enchere, modele, marque, puissance, annee, description, id_users) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);");
+    $query = $dbh->prepare("INSERT INTO annonce_produit (prix_depart_enchere, date_mise_en_ligne, date_fin_enchere, modele, marque, puissance, annee, description) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
 
 /*Execution de la requette*/
-    $result = $query->execute([$prix_depart_enchere, $date_mise_en_ligne, $date_fin_enchere, $modele, $marque, $puissance, $annee, $description, $id_users]);
+    $result = $query->execute([$prix_depart_enchere, $date_mise_en_ligne, $date_fin_enchere, $modele, $marque, $puissance, $annee, $description]);
 
  
     ?>

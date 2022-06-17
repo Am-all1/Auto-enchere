@@ -5,10 +5,7 @@ session_start();
 require_once __DIR__."/lib/dbb.php";
 require_once __DIR__."/Class/User.class.php";
 
-    if (!isset($_SESSION['id'])){
-         header('Location: index.php');
-         exit;
-     }
+
 
 
  
@@ -18,12 +15,12 @@ if ($_SERVER["REQUEST_METHOD"] != "POST")
     die();
 }
 
-    $afficher_profil = $DB->query("SELECT *
-        FROM user
-         WHERE id = ?",
-         array($_SESSION['id']));
-     $afficher_profil = $afficher_profil->fetch();
- 
+$query = $DB->prepare("SELECT *
+FROM user
+ WHERE id = ?",
+ array($_SESSION['id']));
+$afficher_profil = $query->fetch();
+
     if(!empty($_POST)){
      extract($_POST);
         $valid = true;

@@ -1,6 +1,7 @@
 
 <?php
 session_start();
+
 require_once __DIR__."/lib/dbb.php";
 require_once __DIR__."/Class/User.class.php";
 
@@ -8,6 +9,14 @@ require_once __DIR__."/Class/User.class.php";
          header('Location: index.php');
          exit;
      }
+
+
+ 
+if ($_SERVER["REQUEST_METHOD"] != "POST") 
+{
+    http_response_code(405);
+    die();
+}
 
     $afficher_profil = $DB->query("SELECT *
         FROM user
@@ -20,9 +29,9 @@ require_once __DIR__."/Class/User.class.php";
         $valid = true;
  
         if (isset($_POST['modification'])){
-            $nom = htmlentities(trim($nom));
-            $prenom = htmlentities(trim($prenom));
-            $mail = htmlentities(strtolower(trim($mail)));
+            $nom = htmlentities(trim($nom));//trim=supprime les espaces avant le nom
+            $prenom = htmlentities(trim($prenom));//html entities traduit tous les caractères et entité en HTML
+            $email = htmlentities(strtolower(trim($email)));//strtolower pr convertir en minuscule
  
          if(empty($nom)){
             $valid = false;
@@ -38,31 +47,31 @@ require_once __DIR__."/Class/User.class.php";
             $valid = false;
             $er_mail = "Il faut mettre un mail";
  
-            }elseif(!preg_match("/^[a-z0-9\-_.]+@[a-z]+\.[a-z]{2,3}$/i", $mail)){
+            }elseif(!preg_match("/^[a-z0-9\-_.]+@[a-z]+\.[a-z]{2,3}$/i", $email)){
             $valid = false;
             $er_mail = "Le mail n'est pas valide";
  
             }else{
-            $req_mail = $DB->query("SELECT mail
+            $req_mail = $DB->query("SELECT email
                 FROM utilisateur
-                WHERE mail = ?",
-            array($mail));
-             $req_mail = $req_mail->fetch();
+                WHERE email = ?",
+            array($email));
+             $req_email = $req_email->fetch();
  
-        if ($req_mail['mail'] <> "" && $_SESSION['mail'] != $req_mail['mail']){
+        if ($req_mail['email'] <> "" && $_SESSION['email'] != $req_email['email']){
             $valid = false;
             $er_mail = "Ce mail existe déjà";
  }
 }
  
 if ($valid){
-    $DB->insert("UPDATE utilisateur SET prenom = ?, nom = ?, mail = ?
+    $DB->insert("UPDATE utilisateur SET prenom = ?, nom = ?, email = ?
                      WHERE id = ?",
-                     array($prenom, $nom,$mail, $_SESSION['id']));
+                     array($prenom, $nom,$email, $_SESSION['id']));
  
                  $_SESSION['nom'] = $nom;
                  $_SESSION['prenom'] = $prenom;
-                 $_SESSION['mail'] = $mail;
+                 $_SESSION['email'] = $email;
  
              header('Location: profil_utilisateur.php');
              exit;

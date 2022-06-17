@@ -41,10 +41,12 @@ $user = $query->fetch(PDO::FETCH_ASSOC);
 <body>
     <?php if ($result == 1) { ?>
         <p>Votre profil a bien été enregistré.</p>
-        <meta http-equiv="refresh" content="1;page_connexion.php" />
+        <meta http-equiv="refresh" content="1;index.php" />
     <?php } else { ?>
         <p>Une erreur s'est produite lors de votre enregistrement.</p>
     <?php } ?>
+
+
 </body>
 
 </html>

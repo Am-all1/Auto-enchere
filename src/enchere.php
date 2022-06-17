@@ -44,6 +44,7 @@ var_dump($_SESSION["id_users"]);
 <body>
     <?php if($result == 1){ ?>
         <p>Votre annonce a bien été enregistré.</p>
+        <meta http-equiv="refresh" content="1;affichage_enchere.php" />
     <?php } else { ?>
         <p>Une erreur s'est produite lors de l'enregistrement de votre annonce.</p>
     <?php } ?>

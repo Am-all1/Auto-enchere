@@ -20,6 +20,7 @@ function affichage_footer($copyright, $mentions_legales) { ?>
 
 background-color: #000000e8;
 color: white;
+padding-top: 7px;
 }
 
 </style >

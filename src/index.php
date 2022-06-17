@@ -3,7 +3,7 @@ session_start();
 require_once __DIR__."/include/header.php";
 require_once __DIR__."/include/footer.php";
 require_once __DIR__."/affichage_enchere.php";
-?>
+?>;
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -20,4 +20,7 @@ require_once __DIR__."/affichage_enchere.php";
     
     <?php affichage_footer("Tous droit reservés", "mentions_legales.php"); ?>
 </body>
+
+
+
 </html>

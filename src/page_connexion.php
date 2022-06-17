@@ -7,7 +7,7 @@
     <title>The place to be</title>
 </head>
 
-<body>
+<body id="formConnection">
     <form action="connection_user.php" method="POST">
         <label for="email">Email:</label>
         <input type="email" name="email" id="email">
@@ -24,4 +24,19 @@
     </form>
 </body>
 
+<style scoped>
+
+#formConnection{
+    
+    DISPLAY: FLEX;
+    justify-content: space-around;
+    position: absolute;
+   
+    width: 100%;
+    padding-top: 270px;
+    height: 50px;
+}
+
+</style>
 </html>
+

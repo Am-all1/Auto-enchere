@@ -8,7 +8,6 @@ class User
 {
 
     /* Propriétés */
-    public INT $id;
     public string $email;
     public string $mot_de_passe;
 

@@ -51,13 +51,14 @@ $annonce_produit = $query->fetchAll(PDO::FETCH_ASSOC);
                     <td><?= $vehicule["date_fin_enchere"] ?></td>
                 </tr>
 
+            </div>
+
+        
             <?php } ?>
         </tbody>
     </table>
     
     <?php affichage_footer("Tous droit reservés", "mentions_legales.php"); ?>
 </body>
-
-
 
 </html>

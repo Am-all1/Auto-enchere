@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once __DIR__."/include/header.php";
-require_once __DIR__."/include/footer.php";
+require_once __DIR__ . "/include/header.php";
+require_once __DIR__ . "/include/footer.php";
 ?>
 
 <!DOCTYPE html>
@@ -11,9 +11,11 @@ require_once __DIR__."/include/footer.php";
         <title>Document</title>
     </head>
     <body>
+
         <?php affichage_header("Accueil", ["index"=>"index.php","profil"=>"profil_utilisateur.php", "Connexion"=> "page_connexion.php"]); ?>
         
         <form action="enchere.php" method="POST">
+        
             <label for="prix_depart_enchere">Prix de reserve:</label>
             <input type="number" name="prix_depart_enchere" id="prix_depart_enchere">
 

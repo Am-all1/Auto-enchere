@@ -1,9 +1,18 @@
 <?php 
 
     function affichage_header($titre, $liens) { ?>
-    <nav id="barNav">
+
+     <section class="section"> 
+           
+           <div >
+                <img src="../image/s1.jpeg" id="imgEntete">
+             </div>
+            
+            <nav id="barNav">
+    
         <p><?php echo $titre; ?></p>
-        <ul >
+
+        <ul class= "nomAccueil" >
             <?php foreach($liens as $nom => $lien) { ?>
                 <li >
                     <a href="<?php echo $lien; ?>"id="li">
@@ -12,8 +21,8 @@
                 </li>
             <?php } ?>
         </ul>
-    </nav>
-    <img src="/background.jpg">
+            </nav>
+    </section>
 
 <?php }
 
@@ -24,15 +33,20 @@
 <style scoped>
     
 #barNav{
-
+display: flex;
+flex-direction: row;
 background-color: #000000e8;
 color: white;
-height: 130px;
+height: 110px;
+position: relative;
 }
 
 #li{
     color: white;
 }
+#imgEntete{
 
+    width: 100%;
+}
 
 </style >

@@ -18,7 +18,7 @@ $mot_de_passe = password_hash($_POST["mot_de_passe"], PASSWORD_DEFAULT);
 
 /* Préparation de la requette*/
 $query = $dbh->prepare("INSERT INTO users (nom, prenom, email, mot_de_passe) 
-    VALUES (?, ?, ?, ?);");
+    VALUES (?, ?, ?, ?, ?);");
 
 /*Execution de la requette*/
 $result = $query->execute([$nom, $prenom, $email, $mot_de_passe]);
@@ -41,7 +41,7 @@ $user = $query->fetch(PDO::FETCH_ASSOC);
 <body>
     <?php if ($result == 1) { ?>
         <p>Votre profil a bien été enregistré.</p>
-        <meta http-equiv="refresh" content="1;index.php" />
+        <meta http-equiv="refresh" content="1;page_connexion.php" />
     <?php } else { ?>
         <p>Une erreur s'est produite lors de votre enregistrement.</p>
     <?php } ?>

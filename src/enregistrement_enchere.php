@@ -2,6 +2,8 @@
 session_start();
 require_once __DIR__ . "/include/header.php";
 require_once __DIR__ . "/include/footer.php";
+require_once __DIR__."/lib/dbb.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -12,9 +14,9 @@ require_once __DIR__ . "/include/footer.php";
     </head>
     <body>
 
-        <?php affichage_header("Accueil", ["index"=>"index.php","profil"=>"profil_utilisateur.php", "Connexion"=> "page_connexion.php"]); ?>
+        <?php affichage_header("Accueil", ["index"=>"index.php","profil"=>"affichage_profil.php", "Connexion"=> "page_connexion.php"]); ?>
         
-        <form action="enchere.php" method="POST">
+        <form action="enchere.php" method="POST" enctype="multipart/form-data">
         
             <label for="prix_depart_enchere">Prix de reserve:</label>
             <input type="number" name="prix_depart_enchere" id="prix_depart_enchere">
@@ -40,7 +42,10 @@ require_once __DIR__ . "/include/footer.php";
             <label for="description">description:</label>
             <textarea name="description"></textarea>
 
-            <input type="submit" value="S'inscrire">
+            <label for="file">Fichier</label>
+            <input type="file" name="file">
+            <button type="submit">Enregistrer</button>
+
         </form>
 
 

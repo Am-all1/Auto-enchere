@@ -34,5 +34,5 @@ class Produit
     $this-> description =$description;
     $this-> id_user =$id_user;
     }
-
+    
 };

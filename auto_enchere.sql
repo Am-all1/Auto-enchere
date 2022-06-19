@@ -37,7 +37,8 @@ CREATE TABLE `annonce_produit` (
   `puissance` int(11) NOT NULL,
   `annee` int(11) NOT NULL,
   `description` text NOT NULL,
-  `id_users` int(11) NOT NULL
+  `id_users` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -78,6 +79,7 @@ CREATE TABLE `users` (
 ALTER TABLE `annonce_produit`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_users` (`id_users`);
+  
 
 --
 -- Index pour la table `historique_encheres`

@@ -39,7 +39,7 @@ if (isset($_POST['prix_depart_enchere'],$_POST['date_mise_en_ligne'],$_POST['dat
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>Document</title>
+        <title>Enregistrement de l'annonce</title>
     </head>
     <body>
 
@@ -73,6 +73,7 @@ if (isset($_POST['prix_depart_enchere'],$_POST['date_mise_en_ligne'],$_POST['dat
 
             <label for="file">Fichier</label>
             <input type="file" name="file">
+            
             <button type="submit">Enregistrer votre annonce</button><br/>
 
         </form>

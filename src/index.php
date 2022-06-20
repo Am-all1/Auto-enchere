@@ -5,7 +5,6 @@ require_once __DIR__."/include/footer.php";
 require_once __DIR__ . "/lib/dbb.php";
 require_once __DIR__."/Class/User.class.php";
 
-
 /* Préparation de la requête */
 $query = $dbh->prepare("SELECT * FROM annonce_produit;");
 
@@ -22,7 +21,7 @@ $annonce_produit = $query->fetchAll(PDO::FETCH_ASSOC);
         <meta charset="UTF-8">
         <link rel= "stylesheet"  href= "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  integrity= "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"  crossorigin = "anonyme" >
         <head> 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integral="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> 
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integral="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> 
         </head> 
         <title>The place to be | Accueil</title>
     </head>
@@ -35,18 +34,8 @@ $annonce_produit = $query->fetchAll(PDO::FETCH_ASSOC);
         </main> 
         <div>
             <div>
-                <h2>profil</h2>
-              
-                <?php $req = $dbh->query('SELECT name FROM file');
-                $data = $req->fetch();
-                echo "<img src='./upload/".$data['name']."' width='300px' ><br>";  ?>
-               
-               <?php foreach($users as $index => $utilisateur) { ?>
-                    <p>Nom: <?= $users["nom"]; ?></p>
-                    <p>Prénom: <?= $users["prenom"]; ?></p>
-                    <p>Email: <?php echo $users["email"]; ?></p>
-
-                <?php } ?>
+                
+                <?php require_once __DIR__."/affichage.lib.php"; ?>
             </div>
                 
             <div>  

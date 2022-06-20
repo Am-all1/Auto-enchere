@@ -11,21 +11,21 @@ $email = htmlspecialchars(filter_var($_POST["email"], FILTER_SANITIZE_EMAIL));
 
 
 
+/* Préparation de la requête */
+$query = $dbh->prepare("SELECT * FROM users ORDER BY id DESC");
 
-$tmpName = $_FILES['file']['tmp_name'];
-    $name = $_FILES['file']['name'];
-    $tabExtension = explode('.', $name);
+    $tmpName = $_FILES['file']['tmp_name_users'];
+    $name_users = $_FILES['file']['name_users'];
+    $tabExtension = explode('.', $name_users);
     $extension = strtolower(end($tabExtension));
 
     $extensions = ['jpg', 'png', 'jpeg', 'gif'];
     if(in_array($extension, $extensions)){
-        move_uploaded_file($tmpName, './upload/'.$name);
+        move_uploaded_file($tmpName_users, './upload/'.$name_users);
     }
     else{
         echo "Mauvaise extension";
     }
-    /* Préparation de la requête */
-$query = $dbh->prepare("SELECT * FROM users ORDER BY id DESC");
 
 /* Exécution de la requête */
 $query->execute();
@@ -56,21 +56,21 @@ $users = $query->fetch();
             <input type="file" name="file">
             <input type="submit" name="submit"><br/>
         </form>
-           <?php $req = $dbh->query('SELECT name FROM users');
+           <?php $req = $dbh->query('SELECT name_users FROM users');
             $data = $req->fetch();
-            echo "<img src='./upload/".$data['name']."' width='300px' ><br>"; ?>
+            echo "<img src='./upload/".$data['name_users']."' width='300px' ><br>"; ?>
                 
            
 
-        <?php while($b = $query->fetch()) { ?>
-            <ul>
-                <li>Nom: <?=  $b["nom"]; ?></li>
-                <li>Prénom: <?= $b["prenom"]; ?></li>
-                <li>Email: <?= $b["email"]; ?></li>
-                <li>Modifier votre mot de passe <?= $b["mot_de_passe"]; ?></li>
-            </ul>
-
-        <?php } ?>
+        <ul>
+            <?php while($a = $query->fetch()) { ?>
+                <li>Nom: <?=  $a["nom"]; ?></li>
+                <li>Prénom: <?= $a["prenom"]; ?></li>
+                <li>Email: <?= $a["email"]; ?></li>
+                <li>Votre mot de passe <?= $a["mot_de_passe"]; ?></li>
+                
+            <?php } ?>
+        </ul>
        
 
         

@@ -4,7 +4,7 @@
  * Classe historique_achat
  */
 
-class HistoriqueAchat
+class HistoriqueEnchere
 {
 
     /* Propriétés */

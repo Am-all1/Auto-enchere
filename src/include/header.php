@@ -36,9 +36,9 @@
 #barNav{
 display: flex;
 flex-direction: row;
-/* background-color: #000000e8; */
+background-color: #000000e8;
 color: black;
-/* height: 110px; */
+height: 110px;
 position: absolute;
 }
 

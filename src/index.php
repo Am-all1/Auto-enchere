@@ -28,7 +28,7 @@ $annonce_produit = $query->fetchAll(PDO::FETCH_ASSOC);
     </head>
     <body>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js " intégrité="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonyme"></script>   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd /popper.min.js"integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"crossorigin="anonyme"></script> 
-        <?php affichage_header("THE PLACE TO BE", ["Profil"=>"affichage_profil.php","Déposer une annonce"=>"enregistrement_enchere.php", "historique des enchères"=>"histo_enchere.php", "Connexion"=> "page_connexion.php"]); ?>
+        <?php affichage_header("THE PLACE TO BE", ["Profil"=>"affichage_profil.php","Déposer une annonce"=>"enregistrement_enchere.php", "historique des enchères"=>"histo_enchere.php", "Deconnexion"=> "page_deconnexion.php"]); ?>
         
         <main>
             <h1>Accueil</h1>

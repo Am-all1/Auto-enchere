@@ -7,7 +7,7 @@ require_once __DIR__."/Class/Produit.class.php";
 
 
 /* Préparation de la requête */
-$query = $dbh->prepare("SELECT * FROM annonce_produit;");
+$query = $dbh->prepare("SELECT * FROM annonce_produit ORDER BY id DESC");
 
 /* Exécution de la requête */
 $query->execute();
@@ -33,18 +33,22 @@ $annonce_produit = $query->fetchAll(PDO::FETCH_ASSOC);
         $data = $req->fetch();
         echo "<img src='./upload/".$data['name']."' width='300px' ><br>";  ?>
             
+            <ul>
+                <?php while($a = $annonce->fetch()) { ?>
+
                 
-                    <ul>
-                        
-                            <li>Enchère numéro: <?= $id ?></li>
-                            <li>Modele: <?= $modele?></li>
-                            <li>Année demise en circulation:<?= $annee ?></li>
-                            <li>Prix de reserve: <?= $prix_depart_enchere ?></li>
-                            <li>Date de mise en ligne de l'enchere: <?= $date_mise_en_ligne ?></li>
-                            <li>Date de fin de l'enchere:<?= $date_fin_enchere ?></li>
+                    <li>Enchère numéro: <?= $a['id'] ?></li>
+                    <li>Modele: <?= $a['modele']?></li>
+                    <li>Marque: <?= $a['marque']?></li>
+                    <li>Puissance: <?= $a['puissance'] ?></li>
+                    <li>Année demise en circulation: <?= $a['annee'] ?></li>
+                    <li>Prix de reserve: <?= $a['prix_depart_enchere'] ?></li>
+                    <li>Date de mise en ligne de l'enchere: <?= $a['date_mise_en_ligne'] ?></li>
+                    <li>Date de fin de l'enchere:<?= $a['date_fin_enchere'] ?></li>
+                    <li>Descritpion du véhicule: <?= $a['description'] ?></li>
                     
-    
-                    </ul>
+                <?php }  ?>    
+            </ul>
                 
        
  

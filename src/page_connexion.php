@@ -10,13 +10,13 @@
 <body id="formConnection">
     <form action="connection_user.php" method="POST">
         <label for="email">Email:</label>
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email"><br/>
 
         <label for="mot_de_passe">Mot de passe:</label>
-        <input type="password" name="mot_de_passe" id="mot_de_passe">
+        <input type="password" name="mot_de_passe" id="mot_de_passe"><br/>
 
 
-        <input type="submit" value="Se connecter">
+        <input type="submit" value="Se connecter"><br/>
 
     </form>
     <form action="page_enregistrement.php" method="POST">

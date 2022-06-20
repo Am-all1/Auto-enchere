@@ -43,7 +43,7 @@ if (isset($_POST['prix_depart_enchere'],$_POST['date_mise_en_ligne'],$_POST['dat
     </head>
     <body>
 
-        <?php affichage_header("Accueil", ["index"=>"index.php","profil"=>"affichage_profil.php", "Connexion"=> "page_connexion.php"]); ?>
+        <?php affichage_header("Accueil", ["Accueil"=>"index.php","profil"=>"affichage_profil.php", "Connexion"=> "page_connexion.php"]); ?>
         
         <form action="enchere.php" method="POST" enctype="multipart/form-data">
         

@@ -10,10 +10,10 @@
 <body id="formConnection">
     <form action="connection_user.php" method="POST">
         <label for="email">Email:</label>
-        <input type="email" name="email" id="email"><br/>
+        <input type="email" name="email" id="email" required><br/>
 
         <label for="mot_de_passe">Mot de passe:</label>
-        <input type="password" name="mot_de_passe" id="mot_de_passe"><br/>
+        <input type="password" name="mot_de_passe" id="mot_de_passe" required><br/>
 
 
         <input type="submit" value="Se connecter"><br/>

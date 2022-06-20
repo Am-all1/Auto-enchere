@@ -38,7 +38,7 @@ $tmpName = $_FILES['file']['tmp_name'];
 </head>
 <body>
     <div>
-        <?php affichage_header("THE PLACE TO BE", ["Accueil"=>"index.php","Déposer une annonce"=>"enregistrement_enchere.php", "historique des enchères"=>"histo_enchere.php"]); ?>
+        <?php affichage_header("THE PLACE TO BE", ["Accueil"=>"index.php","Déposer une annonce"=>"enregistrement_enchere.php", "historique des enchères"=>"histo_enchere.php", "Deconnexion"=>"page_connexion.php"]); ?>
     </div>   
 
     <div>

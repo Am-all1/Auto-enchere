@@ -3,10 +3,7 @@
     function affichage_header($titre, $liens) { ?>
 
      <section class="section"> 
-           
-           <div >
-                <img src="../image/s1.jpeg" id="imgEntete">
-             </div>
+         
             
             <nav id="barNav">
         <div class="titrePTB">
@@ -22,7 +19,13 @@
                 </li>
             <?php } ?>
         </ul>
+          
+       
             </nav>
+
+            <div >
+                <img src="../image/s1.jpeg" id="imgEntete">
+             </div>
     </section>
 
 <?php }

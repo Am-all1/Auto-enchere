@@ -9,8 +9,9 @@
              </div>
             
             <nav id="barNav">
-    
-        <p><?php echo $titre; ?></p>
+        <div class="titrePTB">
+            <p><?php echo $titre; ?></p>
+        </div>
 
         <ul class= "nomAccueil" >
             <?php foreach($liens as $nom => $lien) { ?>
@@ -36,13 +37,14 @@
 display: flex;
 flex-direction: row;
 background-color: #000000e8;
-color: white;
+color: black;
 height: 110px;
-position: relative;
+position: absolute;
 }
 
 #li{
-    color: white;
+    color: black;
+    display: flex;
 }
 #imgEntete{
 

@@ -32,11 +32,11 @@ require_once __DIR__."/lib/serveur_requette.php";
     }
 
 /* Préparation de la requette*/
-    $query = $dbh->prepare("INSERT INTO annonce_produit (prix_depart_enchere, date_mise_en_ligne, date_fin_enchere, modele, marque, puissance, annee, description, name) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);");
+    $query = $dbh->prepare("INSERT INTO annonce_produit (prix_depart_enchere, date_mise_en_ligne, date_fin_enchere, modele, marque, puissance, annee, description,id_users, name) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
 
 /*Execution de la requette*/
-    $result = $query->execute([$prix_depart_enchere, $date_mise_en_ligne, $date_fin_enchere, $modele, $marque, $puissance, $annee, $description, $name]);
+    $result = $query->execute([$prix_depart_enchere, $date_mise_en_ligne, $date_fin_enchere, $modele, $marque, $puissance, $annee, $description,$id_users, $name]);
 
  
     ?>

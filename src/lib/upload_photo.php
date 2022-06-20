@@ -1,7 +1,7 @@
 <?php
 if (isset($_POST['submit']))
 {   $id_users = $_SESSION["id"];
-    $maxSize = 50000;
+    $maxSize = 90000;
     $validExt = array('.jpg','.jpeg', '.gif','.png');
     if($_FILES['file']['error'] > 0)
     {

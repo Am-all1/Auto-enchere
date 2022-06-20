@@ -43,33 +43,33 @@ if (isset($_POST['prix_depart_enchere'],$_POST['date_mise_en_ligne'],$_POST['dat
     </head>
     <body>
 
-        <?php affichage_header("Accueil", ["Accueil"=>"index.php","profil"=>"affichage_profil.php", "Connexion"=> "page_connexion.php"]); ?>
+        <?php affichage_header("Accueil", ["Accueil"=>"index.php","profil"=>"affichage_profil.php", "Mentions Légales"=>"mentions_legales.php", "Connexion"=> "page_connexion.php"]); ?>
         
         <form action="enchere.php" method="POST" enctype="multipart/form-data">
         
             <label for="prix_depart_enchere">Prix de reserve:</label>
-            <input type="number" name="prix_depart_enchere" id="prix_depart_enchere"><br/>
+            <input type="number" name="prix_depart_enchere" id="prix_depart_enchere" required><br/>
 
             <label for="date_mise_en_ligne">Date de début de l'enchère:</label>
-            <input type="date" name="date_mise_en_ligne" id="date_mise_en_ligne"><br/> -->
+            <input type="date" name="date_mise_en_ligne" id="date_mise_en_ligne" required><br/> -->
             
             <label for="date_fin_enchere">Fin de l'enchère:</label>
-            <input type="date" name="date_fin_enchere" id="date_fin_enchere"><br/>
+            <input type="date" name="date_fin_enchere" id="date_fin_enchere" required><br/>
 
             <label for="modele">Modele du véhicule:</label>
-            <input type="text" name="modele" id="modele"><br/>
+            <input type="text" name="modele" id="modele" required><br/>
 
             <label for="marque">Marque du véhicule:</label>
-            <input type="text" name="marque" id="marque"><br/>
+            <input type="text" name="marque" id="marque" required><br/>
             
             <label for="puissance">Puissance:</label>
-            <input type="number" name="puissance" id="puissance"><br/>
+            <input type="number" name="puissance" id="puissance" required><br/>
             
             <label for="annee">Année de mise en circulation:</label>
-            <input type="number" name="annee" id="annee"><br/>
+            <input type="number" name="annee" id="annee" required><br/>
 
             <label for="description">description:</label>
-            <textarea name="description" placeholder="Ecrire la description de votre véhicule:"></textarea><br/>
+            <textarea name="description" placeholder="Ecrire la description de votre véhicule:" required></textarea><br/>
 
             <label for="file">Fichier</label>
             <input type="file" name="file">

@@ -13,7 +13,7 @@ $query = $dbh->prepare("SELECT * FROM annonce_produit ORDER BY id DESC");
 $query->execute();
 
 /* Récupération des données retournées par la requête */
-$annonce_produit = $query->fetchAll(PDO::FETCH_ASSOC);
+$annonce_produit = $query->fetch();
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +34,7 @@ $annonce_produit = $query->fetchAll(PDO::FETCH_ASSOC);
         echo "<img src='./upload/".$data['name']."' width='300px' ><br>";  ?>
             
             <ul>
-                <?php while($a = $annonce->fetch()) { ?>
+                <?php while($a = $query->fetch()) { ?>
 
                 
                     <li>Enchère numéro: <?= $a['id'] ?></li>

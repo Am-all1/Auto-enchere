@@ -10,7 +10,7 @@ require_once __DIR__."/Class/User.class.php";
 $email = htmlspecialchars(filter_var($_POST["email"], FILTER_SANITIZE_EMAIL));
 
 
-$user = User::getuserByEmail($email);
+
 
 $tmpName = $_FILES['file']['tmp_name'];
     $name = $_FILES['file']['name'];
@@ -24,7 +24,14 @@ $tmpName = $_FILES['file']['tmp_name'];
     else{
         echo "Mauvaise extension";
     }
+    /* Préparation de la requête */
+$query = $dbh->prepare("SELECT * FROM users ORDER BY id DESC");
 
+/* Exécution de la requête */
+$query->execute();
+
+/* Récupération des données retournées par la requête */
+$users = $query->fetch();
 
 
 ?>
@@ -49,23 +56,22 @@ $tmpName = $_FILES['file']['tmp_name'];
             <input type="file" name="file">
             <input type="submit" name="submit"><br/>
         </form>
-           <?php $req = $dbh->query('SELECT name FROM file');
+           <?php $req = $dbh->query('SELECT name FROM users');
             $data = $req->fetch();
             echo "<img src='./upload/".$data['name']."' width='300px' ><br>"; ?>
                 
            
 
-        <?php if (isset($user)) { ?>
+        <?php while($b = $query->fetch()) { ?>
             <ul>
-                <li>Nom: <?=  $user["email"]; ?></li>
-                <li>Prénom: <?= $prenom; ?></li>
-                <li>Email: <?= $email; ?></li>
-                <li>Modifier votre mot de passe <?= $mot_de_passe; ?></li>
+                <li>Nom: <?=  $b["nom"]; ?></li>
+                <li>Prénom: <?= $b["prenom"]; ?></li>
+                <li>Email: <?= $b["email"]; ?></li>
+                <li>Modifier votre mot de passe <?= $b["mot_de_passe"]; ?></li>
             </ul>
 
-        <?php } else { ?>
-        <p>Une erreur s'est produite</p>
-    <?php } ?>
+        <?php } ?>
+       
 
         
               

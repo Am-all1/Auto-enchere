@@ -15,13 +15,14 @@ $nom = htmlspecialchars($_POST["nom"]);
 $prenom = htmlspecialchars($_POST["prenom"]);
 $email = htmlspecialchars(filter_var($_POST["email"], FILTER_SANITIZE_EMAIL));
 $mot_de_passe = password_hash($_POST["mot_de_passe"], PASSWORD_DEFAULT);
+$name = $_POST["name"];
 
 /* Préparation de la requette*/
-$query = $dbh->prepare("INSERT INTO users (nom, prenom, email, mot_de_passe) 
-    VALUES (?, ?, ?, ?);");
+$query = $dbh->prepare("INSERT INTO users (nom, prenom, email, mot_de_passe, name) 
+    VALUES (?, ?, ?, ?, ?);");
 
 /*Execution de la requette*/
-$result = $query->execute([$nom, $prenom, $email, $mot_de_passe]);
+$result = $query->execute([$nom, $prenom, $email, $mot_de_passe, $name]);
 $user = $query->fetch(PDO::FETCH_ASSOC);
 
 

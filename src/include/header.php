@@ -40,10 +40,11 @@ background-color: #000000e8;
 color: black;
 height: 110px;
 position: absolute;
+width: 100%;
 }
 
 #li{
-    color: black;
+    color: white;
     display: flex;
 }
 #imgEntete{

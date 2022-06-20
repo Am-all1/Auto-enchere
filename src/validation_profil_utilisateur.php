@@ -18,7 +18,7 @@ $mot_de_passe = password_hash($_POST["mot_de_passe"], PASSWORD_DEFAULT);
 
 /* Préparation de la requette*/
 $query = $dbh->prepare("INSERT INTO users (nom, prenom, email, mot_de_passe) 
-    VALUES (?, ?, ?, ?, ?);");
+    VALUES (?, ?, ?, ?);");
 
 /*Execution de la requette*/
 $result = $query->execute([$nom, $prenom, $email, $mot_de_passe]);

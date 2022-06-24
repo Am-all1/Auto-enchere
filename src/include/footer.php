@@ -17,13 +17,14 @@ function affichage_footer($copyright, $mentions_legales) { ?>
 <style scoped>
     
 #footer{
-
-background-color: #000000e8;
+display: flex;
+justify-content: space-between;
+background-color: grey;
 color: white;
     bottom: 0;
     width: 100%;
-    padding-bottom: 17px;
-    height: 50px;
+    padding-bottom: 30px;
+    height: 5em;
 }
 
 </style >

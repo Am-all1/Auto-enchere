@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__."/include/header.php";
+require_once __DIR__."/include/header2.php";
 require_once __DIR__."/include/footer.php";
 require_once __DIR__ . "/lib/dbb.php";
 require_once __DIR__."/Class/Produit.class.php";
@@ -20,10 +20,12 @@ $annonce_produit = $query->fetch();
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
         <title>The place to be | Accueil</title>
     </head>
     <body>
-        <?php affichage_header("THE PLACE TO BE", ["Accueil"=>"index.php",  "Profil"=>"affichage_profil.php", "historique des enchères"=>"histo_enchere.php"]); ?>
       
                 
                 
@@ -32,9 +34,9 @@ $annonce_produit = $query->fetch();
         <?php $req = $dbh->query('SELECT name FROM annonce_produit');
         $data = $req->fetch();
         echo "<img src='./upload/".$data['name']."' width='300px' ><br>";  ?>
-            
+               
             <ul>
-                <?php while($a = $query->fetch()) { ?>
+                <?php if($a = $query->fetch()) { ?>
 
                 
                     <li>Enchère numéro: <?= $a['id'] ?></li>

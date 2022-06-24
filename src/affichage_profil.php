@@ -1,33 +1,15 @@
 <?php
 session_start();
-require_once __DIR__."/include/header.php";
+require_once __DIR__."/include/header2.php";
 require_once __DIR__."/include/footer.php";
 require_once __DIR__ . "/lib/dbb.php";
 require_once __DIR__."/Class/User.class.php";
 
 
-
-$email = htmlspecialchars(filter_var($_POST["email"], FILTER_SANITIZE_EMAIL));
-
-
-
 /* Préparation de la requête */
 $query = $dbh->prepare("SELECT * FROM users ORDER BY id DESC");
 
-    $tmpName = $_FILES['file']['tmp_name_users'];
-    $name_users = $_FILES['file']['name_users'];
-    $tabExtension = explode('.', $name_users);
-    $extension = strtolower(end($tabExtension));
-
-    $extensions = ['jpg', 'png', 'jpeg', 'gif'];
-    if(in_array($extension, $extensions)){
-        move_uploaded_file($tmpName_users, './upload/'.$name_users);
-    }
-    else{
-        echo "Mauvaise extension";
-    }
-
-/* Exécution de la requête */
+/*Execution de la requette*/
 $query->execute();
 
 /* Récupération des données retournées par la requête */
@@ -40,46 +22,65 @@ $users = $query->fetch();
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    
+    <head> 
+            <title>The place to be | Profil</title>
 </head>
 <body>
-    <div>
-        <?php affichage_header("THE PLACE TO BE", ["Accueil"=>"index.php","Déposer une annonce"=>"enregistrement_enchere.php", "historique des enchères"=>"histo_enchere.php", "Deconnexion"=>"page_connexion.php"]); ?>
-    </div>   
-
-    <div>
         <h1>profil</h1>
 
-        <form method="POST" enctype="multipart/form-data">
-            <label for="file">Fichier</label>
-            <input type="file" name="file">
-            <input type="submit" name="submit"><br/>
-        </form>
-           <?php $req = $dbh->query('SELECT name_users FROM users');
+        <?php $req = $dbh->query('SELECT name FROM users');
             $data = $req->fetch();
-            echo "<img src='./upload/".$data['name_users']."' width='300px' ><br>"; ?>
-                
-           
-
-        <ul>
-            <?php while($a = $query->fetch()) { ?>
-                <li>Nom: <?=  $a["nom"]; ?></li>
-                <li>Prénom: <?= $a["prenom"]; ?></li>
-                <li>Email: <?= $a["email"]; ?></li>
-                <li>Votre mot de passe <?= $a["mot_de_passe"]; ?></li>
-                
-            <?php } ?>
-        </ul>
-       
-
-        
-              
-                
-        
-       
-    </div>
+            echo "<img src='./upload".$data['name']."' width='300px' ><br>"; ?>
+            <form action="photo_profil.php" method="POST" enctype="multipart/form-data">
+                <label for="file">Fichier</label>
+                <input type="file" name="file">
+                <input type="submit" name="submit"><br/>
+            </form>
+               
+        <form class="row g-3">
+            <?php if($a = $query->fetch()) { ?>
+            <div id="change" class="col-md-6">
+                <label for="inputEmail4" class="form-label">Email</label>
+                <input type="email" class="form-control" id="inputEmail4" value="<?= $a["email"]; ?>">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Mot de passe</label>
+                <input type="password" class="form-control" id="inputPassword4" value="<?= $a["mot_de_passe"]; ?>">
+            </div>
+            <div class="col-6">
+                <label for="inputAddress" class="form-label">Nom</label>
+                <input type="text" class="form-control" id="inputAddress" value="<?=  $a["nom"]; ?>">
+            </div>
+            <div class="col-6">
+                <label for="inputAddress2" class="form-label">Prénom</label>
+                <input type="text" class="form-control" id="inputAddress2" value="<?= $a["prenom"]; ?>">
+            </div>
+            <div class="col-md-6">
+                <label for="inputCity" class="form-label">Ville</label>
+                <input type="text" class="form-control" id="inputCity" value="Nice">
+            </div>
+            
+            <div class="col-md-2">
+                <label for="inputZip" class="form-label">Code postal</label>
+                <input type="text" class="form-control" id="inputZip" value="06000">
+            </div>
+            
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+        </div>
+        <?php } ?>
+        </form>  
+   
     <?php affichage_footer("Tous droit reservés", "mentions_legales.php"); ?>
 </body>
 </html>
-<div>
+
+<style>
+#change {
+    display: flex;
+    flex-direction: column;
+}
+</style>

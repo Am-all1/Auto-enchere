@@ -1,19 +1,21 @@
 <?php
+require_once __DIR__ . "/lib/dbb.php";
+require_once __DIR__."/Class/User.class.php";
 
-
+$nom = htmlspecialchars($_POST["nom"]);
+$prenom = htmlspecialchars($_POST["prenom"]);
 $email = htmlspecialchars(filter_var($_POST["email"], FILTER_SANITIZE_EMAIL));
+$mot_de_passe = password_hash($_POST["mot_de_passe"], PASSWORD_DEFAULT);
 
 
-
-
-    $tmpName_users = $_FILES['file']['tmp_name'];
-    $name_users = $_FILES['file']['name_users'];
-    $tabExtension = explode('.', $name_users);
+    $tmpName = $_FILES['file']['tmp_name'];
+    $name = $_FILES['file']['name'];
+    $tabExtension = explode('.', $name);
     $extension = strtolower(end($tabExtension));
 
     $extensions = ['jpg', 'png', 'jpeg', 'gif'];
     if(in_array($extension, $extensions)){
-        move_uploaded_file($tmpName_users, './upload/'.$name_users);
+        move_uploaded_file($tmpName, './upload/'.$name);
     }
     else{
         echo "Mauvaise extension";
@@ -30,22 +32,21 @@ $users = $query->fetch();
 
 ?>
 
-        <h1>profil</h1>
+    <h1>profil</h1>
 
-        
-           <?php $req = $dbh->query('SELECT name_users FROM users');
-            $data = $req->fetch();
-            echo "<img src='./upload/".$data['name_users']."' width='300px' ><br>"; ?>
-                
+    <?php $req = $dbh->query('SELECT name FROM users');
+        $users = $query->fetch();
+        echo "<img src='./upload/".$users['name']."' width='300px' ><br>"; ?>
+            
+    
+
+    <ul>
+        <?php if($a = $query->fetch()) { ?>
+            <h4>Nom: <?=  $a["nom"]; ?></h4>
+            <h4>Prénom: <?= $a["prenom"]; ?></h4>
+            <h4>Email: <?= $a["email"]; ?></h4>
            
-
-        <?php while($b = $query->fetch()) { ?>
-            <ul>
-                <li>Nom: <?=  $b["nom"]; ?></li>
-                <li>Prénom: <?= $b["prenom"]; ?></li>
-                <li>Email: <?= $b["email"]; ?></li>
-                <li>Votre mot de passe <?= $b["mot_de_passe"]; ?></li>
-            </ul>
-
+            
         <?php } ?>
+    </ul>
     

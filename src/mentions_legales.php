@@ -14,7 +14,7 @@ require_once __DIR__."/include/footer.php";
     <title>The place to be | Mentions Légales</title>
 </head>
 <body>
-<?php affichage_header("Accueil", ["index"=>"index.php","profil"=>"affichage_profil.php","Enchère"=>"enregistrement_enchere.php", "Connexion"=> "page_connexion.php"]); ?>
+<?php affichage_header("Accueil", ["Accueil"=>"index.php","Profil"=>"affichage_profil.php","Déposer une annonce"=>"enregistrement_enchere.php", "Deconnexion"=> "page_deconnexion.php"]); ?>
 
     <main>
         <a href="index.php">Retour à l'accueil</a>

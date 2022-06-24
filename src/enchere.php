@@ -50,11 +50,44 @@ require_once __DIR__."/lib/serveur_requette.php";
     <title>The place to be | Profil utilisateur</title>
 </head>
 <body>
+    <div class="spinner">
+        <button class="btn btn-primary" type="button" disabled>
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        <span class="visually-hidden">Loading...</span>
+        </button>
+        <button class="btn btn-primary" type="button" disabled>
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        Loading...
+        </button>
+    </div>
+
     <?php if($result == 1){ ?>
-        <p>Votre annonce a bien été enregistré.</p>
-        <meta http-equiv="refresh" content="1;index.php" />
+        <p class="fs-1">Votre annonce a bien été enregistré.</p>
+        <meta http-equiv="refresh" content="2;index.php" />
     <?php } else { ?>
-        <p>Une erreur s'est produite lors de l'enregistrement de votre annonce.</p>
-    <?php } ?>
+        <p class="fs-2">Une erreur s'est produite lors de l'enregistrement de votre annonce.</p>
+        <meta http-equiv="refresh" content="2;index.php" />
+        <?php } ?>
 </body>
 </html>
+
+<style>
+.spinner {
+    display: flex;
+    justify-content: space-around;
+}
+.fs-1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 20%;
+    color: green;
+}
+
+.fs-2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 20%;
+    color: red;
+}
+
+</style>

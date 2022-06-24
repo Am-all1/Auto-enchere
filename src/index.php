@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once __DIR__."/include/header.php";
+
+require_once __DIR__."/include/header2.php";
 require_once __DIR__."/include/footer.php";
 require_once __DIR__ . "/lib/dbb.php";
 require_once __DIR__."/Class/User.class.php";
@@ -19,62 +20,106 @@ $annonce_produit = $query->fetchAll(PDO::FETCH_ASSOC);
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <link rel= "stylesheet"  href= "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  integrity= "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"  crossorigin = "anonyme" >
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
         <head> 
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integral="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> 
         </head> 
         <title>The place to be | Accueil</title>
     </head>
     <body>
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js " intégrité="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonyme"></script>   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd /popper.min.js"integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"crossorigin="anonyme"></script> 
-        <?php affichage_header("THE PLACE TO BE", ["Profil"=>"affichage_profil.php","Déposer une annonce"=>"enregistrement_enchere.php", "historique des enchères"=>"histo_enchere.php","Mentions Légales"=>"mentions_legales.php", "Deconnexion"=> "page_deconnexion.php"]); ?>
-        
+        <br/>
         <main>
             <h1>Accueil</h1>
         </main> 
-        <div>
-            <div>
+        <br/>
+        <div class="body">
+            <div class="profil">
                 
                 <?php require_once __DIR__."/affichage.lib.php"; ?>
             </div>
                 
-            <div>  
-                <h2>Annonce d'enchère</h2>
-        
-            </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Modele</th>
-                        <th>Année demise en circulation</th>
-                        <th>Prix de reserve</th>
-                        <th>Date de mise en ligne de l'enchere</th>
-                        <th>Date de fin de l'enchere</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($annonce_produit as $index => $vehicule) { ?>
+            <div class="tableau">
+                <div>  
+                    <h2>Annonce d'enchère</h2>
+            
+                </div>
+                <table>
+                    <thead>
                         <tr>
-                            <td><a href="affichage_annonce.php"><?= $vehicule["id"] ?></a></td>
-                            <td><a href="affichage_annonce.php"><?= $vehicule["modele"] ?></a></td>
-                            <td><a href="affichage_annonce.php"><?= $vehicule["annee"] ?></a></td>
-                            <td><a href="affichage_annonce.php"><?= $vehicule["prix_depart_enchere"] ?></a></td>
-                            <td><a href="affichage_annonce.php"><?= $vehicule["date_mise_en_ligne"] ?></a></td>
-                            <td><a href="affichage_annonce.php"><?= $vehicule["date_fin_enchere"] ?></a></td>
-                        </tr>       
-                    <?php } ?>
-                </tbody>
-            </table>
+                            <th>Id</th>
+                            <th>Modele</th>
+                            <th>Année demise en circulation</th>
+                            <th>Prix de reserve</th>
+                            <th>Date de mise en ligne de l'enchere</th>
+                            <th>Date de fin de l'enchere</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($annonce_produit as $index => $vehicule) { ?>
+                            <tr>
+                                <td><a href="affichage_annonce.php"><?= $vehicule["id"] ?></a></td>
+                                <td><a href="affichage_annonce.php"><?= $vehicule["modele"] ?></a></td>
+                                <td><a href="affichage_annonce.php"><?= $vehicule["annee"] ?></a></td>
+                                <td><a href="affichage_annonce.php"><?= $vehicule["prix_depart_enchere"] ?></a></td>
+                                <td><a href="affichage_annonce.php"><?= $vehicule["date_mise_en_ligne"] ?></a></td>
+                                <td><a href="affichage_annonce.php"><?= $vehicule["date_fin_enchere"] ?></a></td>
+                            </tr>       
+                        <?php } ?>
+                    </tbody>
+                </table>
+                <div class="img">
+                    <?php $req = $dbh->query('SELECT name FROM annonce_produit');
+                    $data = $req->fetch();
+                    echo "<img src='./upload/".$data['name']."' width='300px' ><br>";  ?>
+                </div>
+            </div>
         </div>   
-        <?php $req = $dbh->query('SELECT name FROM annonce_produit');
-        $data = $req->fetch();
-        echo "<img src='./upload/".$data['name']."' width='300px' ><br>";  ?>
-    
+
+        <div class="ratio ratio-16x9">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/1LgXv05w-qk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
     </body>
+    <br/>
     <footer>
         <?php affichage_footer("Tous droit reservés", "mentions_legales.php"); ?>
     </footer>
 
 </html>
+
+<style>
+.profil {
+    border: 5px solid grey;
+    border-radius: 2%;
+    width: 50%;
+}
+
+.body {
+    display: inline-flex;
+    flex-direction: row;
+    flex: 2 100px;
+    margin: 0% 0%, 0%, 2%;
+}
+
+.tableau {
+    border: 5px solid grey;
+    border-radius: 2%;
+    width: 50%;
+}
+
+table {
+    height: 50%;
+}
+
+.img {
+    display: flex;
+    height: auto;
+    justify-content: center;
+}
+
+.ratio {
+    width: 50%;
+    height: 50%;
+}
+</style>
